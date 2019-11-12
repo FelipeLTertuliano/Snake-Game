@@ -5,3 +5,9 @@ C:\Users\felip\Desktop\programacao\Projetos\SnakeGame\SnakeGame\obj\Debug\SnakeG
 C:\Users\felip\Desktop\programacao\Projetos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
 C:\Users\felip\Desktop\programacao\Projetos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
 C:\Users\felip\Desktop\programacao\Projetos\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\bin\Debug\SnakeGame.exe.config
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\bin\Debug\SnakeGame.exe
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\bin\Debug\SnakeGame.pdb
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\obj\Debug\SnakeGame.csprojAssemblyReference.cache
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\obj\Debug\SnakeGame.exe
+C:\Users\felipe.tertuliano\Desktop\Snake-Game\SnakeGame\obj\Debug\SnakeGame.pdb

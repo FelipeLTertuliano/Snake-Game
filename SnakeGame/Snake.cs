@@ -86,35 +86,39 @@ namespace SnakeGame
 
         public bool Walk(ConsoleKeyInfo direction)
         {
-                Direction = direction;
-
-            switch (Direction.Key)
-            {
-                case ConsoleKey.UpArrow:
-
-                    Head.GoUp(true);
-
-                    break;
-
-                case ConsoleKey.RightArrow:
-
-                    Head.GoRigth(true);
-
-                    break;
-
-                case ConsoleKey.DownArrow:
-
-                    Head.GoUp(false);
-
-                    break;
-
-                case ConsoleKey.LeftArrow:
-
-                    Head.GoRigth(false);
-
-                    break;
-            }
+            _referencial(direction);
             
+            Folow();
+
+            bool result = true;
+
+            foreach (Block block in Body)
+            {
+                if (block.Height == Head.Height && block.Width == Head.Width)
+                {
+                    result = false;
+                }
+            }
+
+            if ((Head.Width < 0 || Head.Width >= Map.GetLength(1)) ||
+                (Head.Height < 0 || Head.Height >= Map.GetLength(0)))
+            {
+                result = false;
+            }
+
+            if (result)
+            {
+                TryEat();
+                GenerateMap();
+            }
+
+            return result;
+        }
+
+        public bool Walk()
+        {
+            _referencial(Direction);
+
             Folow();
 
             bool result = true;
@@ -157,6 +161,83 @@ namespace SnakeGame
                     Body[i].ChangeLocation(Head.LastHeight, Head.LastWidth);
                 }
             }
+        }
+
+        private void _referencial(ConsoleKeyInfo direction)
+        {
+            if (_canMove(direction))
+            {
+                switch (direction.Key)
+                {
+                    case ConsoleKey.UpArrow:
+
+                        Head.GoUp(true);
+
+                        break;
+
+                    case ConsoleKey.RightArrow:
+
+                        Head.GoRigth(true);
+
+                        break;
+
+                    case ConsoleKey.DownArrow:
+
+                        Head.GoUp(false);
+
+                        break;
+
+                    case ConsoleKey.LeftArrow:
+
+                        Head.GoRigth(false);
+
+                        break;
+                }
+                Direction = direction;
+            }
+        }
+
+        private bool _canMove(ConsoleKeyInfo direction)
+        {
+            switch (direction.Key)
+            {
+                case ConsoleKey.UpArrow:
+
+                    if(!(Direction.Key == ConsoleKey.DownArrow))
+                    {
+                        return true;
+                    }
+
+                    break;
+
+                case ConsoleKey.RightArrow:
+
+                    if (!(Direction.Key == ConsoleKey.LeftArrow))
+                    {
+                        return true;
+                    }
+
+                    break;
+
+                case ConsoleKey.DownArrow:
+
+                    if (!(Direction.Key == ConsoleKey.UpArrow))
+                    {
+                        return true;
+                    }
+
+                    break;
+
+                case ConsoleKey.LeftArrow:
+
+                    if (!(Direction.Key == ConsoleKey.RightArrow))
+                    {
+                        return true;
+                    }
+
+                    break;
+            }
+            return false;
         }
     }
 
